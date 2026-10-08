@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pix - Phitofarma Araçatuba</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 35px 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .chave {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 18px;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background: #800D0D;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #mensagem {
+            margin-top: 15px;
+            color: #800D0D;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Phitofarma Araçatuba</h1>
+
+    <p>Pagamento via Pix</p>
+
+    <div class="chave" id="chavePix">
+        67.634.542/0001-97
+    </div>
+
+    <button onclick="copiarPix()">
+        📋 COPIAR CHAVE PIX
+    </button>
+
+    <div id="mensagem" aria-live="polite"></div>
+
+</div>
+
+<script>
+async function copiarPix() {
+    const chave = "67634542000197";
+    const mensagem = document.getElementById("mensagem");
+
+    try {
+        await navigator.clipboard.writeText(chave);
+        mensagem.innerText = "✓ Chave Pix copiada!";
+    } catch (erro) {
+        mensagem.innerText =
+            "Não foi possível copiar automaticamente. Selecione a chave acima para copiar.";
+    }
+}
+</script>
+
+</body>
+</html>
